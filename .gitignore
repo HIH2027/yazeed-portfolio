@@ -1,0 +1,49 @@
+# This is a static site: plain HTML, CSS and JavaScript, no build step.
+# Nothing here is generated, so the list stays short on purpose.
+
+# ── Secrets and environment ──────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+secrets.*
+credentials.*
+
+# ── OS cruft ─────────────────────────────────────────────────
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ── Editors and tooling ──────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.claude/
+
+# ── Source media ─────────────────────────────────────────────
+# Only the web-ready assets in assets/ belong in the repo. Camera
+# originals and video are large and serve no purpose once cropped.
+*.mov
+*.mp4
+*.psd
+*.ai
+*.sketch
+IMG_*.jpeg
+IMG_*.jpg
+
+# ── If tooling is ever added ─────────────────────────────────
+node_modules/
+dist/
+build/
+.cache/
+npm-debug.log*
+yarn-error.log*
+*.log
