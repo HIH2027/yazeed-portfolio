@@ -68,16 +68,12 @@ Tokens live at the top of `style.css`. Changing the accent is one line, in two p
 `assets/og.png` (1200×630) is what LinkedIn, WhatsApp and X show when the link is shared. It is
 generated, not hand-drawn — regenerate it after any change to the name or headline.
 
-**Before deploying, make the URL absolute.** Crawlers will not resolve a relative path, and the card
-silently falls back to plain text:
+`og:url`, `og:image` and `twitter:image` are absolute and point at the live GitHub Pages address.
+They must stay absolute: crawlers will not resolve a relative path, and the card silently falls back
+to plain text. If the site ever moves to a custom domain, update the host in those three tags.
 
-```html
-<meta property="og:image" content="https://your-domain.com/assets/og.png">
-<meta name="twitter:image"  content="https://your-domain.com/assets/og.png">
-```
-
-After deploying, force the platforms to re-read it — they cache aggressively:
-LinkedIn Post Inspector (`linkedin.com/post-inspector`) and Facebook's Sharing Debugger.
+Platforms cache previews aggressively. After a change, force a re-read with
+LinkedIn Post Inspector (`linkedin.com/post-inspector`) or Facebook's Sharing Debugger.
 
 ## Printing
 
