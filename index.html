@@ -84,8 +84,9 @@
     </nav>
 
     <div class="header__actions">
-      <button class="cmd-trigger" id="cmd-open" type="button" aria-haspopup="dialog" aria-controls="cmd">
-        <span lang="en">Menu</span><span lang="ar">القائمة</span>
+      <button class="cmd-trigger" id="cmd-open" type="button" aria-haspopup="dialog" aria-controls="cmd" aria-label="Menu">
+        <svg class="icon cmd-trigger__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <span class="cmd-trigger__label"><span lang="en">Menu</span><span lang="ar">القائمة</span></span>
         <kbd id="cmd-kbd" dir="ltr">Ctrl K</kbd>
       </button>
       <!-- The visible glyphs are keyed to data-show, not lang, so each label can
@@ -116,8 +117,8 @@
       <div class="hero__text">
         <p class="status-pill">
           <span class="status-pill__dot" aria-hidden="true"></span>
-          <span lang="en">Open to pharmacy &amp; digital-health roles from 20 June 2027</span>
-          <span lang="ar">أبحث عن فرص في الصيدلة والصحة الرقمية ابتداءً من 20 يونيو 2027</span>
+          <span lang="en"><span class="u-wide">Open to pharmacy &amp; digital-health roles from 20 June 2027</span><span class="u-phone">Open to roles · June 2027</span></span>
+          <span lang="ar"><span class="u-wide">أبحث عن فرص في الصيدلة والصحة الرقمية ابتداءً من 20 يونيو 2027</span><span class="u-phone">أبحث عن فرص · يونيو 2027</span></span>
         </p>
 
         <h1 class="hero__name">
@@ -125,8 +126,8 @@
         </h1>
 
         <p class="hero__status">
-          <span lang="en">PharmD · King Saud bin Abdulaziz University for Health Sciences · Internship year</span>
-          <span lang="ar">دكتور صيدلة · جامعة الملك سعود بن عبدالعزيز للعلوم الصحية · سنة الامتياز</span>
+          <span lang="en"><span class="u-wide">PharmD · King Saud bin Abdulaziz University for Health Sciences · Internship year</span><span class="u-phone">PharmD · KSAU-HS · Internship year</span></span>
+          <span lang="ar"><span class="u-wide">دكتور صيدلة · جامعة الملك سعود بن عبدالعزيز للعلوم الصحية · سنة الامتياز</span><span class="u-phone">دكتور صيدلة · <bdi lang="en">KSAU-HS</bdi> · سنة الامتياز</span></span>
         </p>
 
         <ul class="hero__roles">
@@ -313,6 +314,7 @@
           </div>
         </article>
       </div>
+      <p class="rail-hint" aria-hidden="true"><span lang="en">Swipe for 5 projects</span><span lang="ar">اسحب لرؤية 5 مشاريع</span></p>
     </div>
   </section>
 
@@ -393,13 +395,14 @@
           <a class="button button--ghost" href="mailto:binthnayan@gmail.com">
             <span lang="en">Email me</span><span lang="ar">راسلني</span>
           </a>
-          <button class="button button--ghost" type="button" data-copy-email>
+          <button class="button button--ghost button--copy" type="button" data-copy-email>
             <span lang="en">Copy email</span><span lang="ar">انسخ البريد</span>
           </button>
         </p>
         <p class="contact__links">
           <a class="link link--out" href="https://www.linkedin.com/in/yazeedbinthnayan" target="_blank" rel="me noopener noreferrer">LinkedIn</a>
           <a class="link link--out" href="https://wa.me/966510516678" target="_blank" rel="noopener noreferrer"><span lang="en">WhatsApp</span><span lang="ar">واتساب</span></a>
+          <button class="link link--copy" type="button" data-copy-email><span lang="en">Copy email</span><span lang="ar">انسخ البريد</span></button>
         </p>
       </div>
     </div>
@@ -449,6 +452,14 @@
     <p class="cmd__hint" dir="ltr"><kbd>↑</kbd><kbd>↓</kbd> <span lang="en">to move</span><span lang="ar">للتنقل</span> · <kbd>Enter</kbd> <span lang="en">to choose</span><span lang="ar">للاختيار</span> · <kbd>Esc</kbd> <span lang="en">to close</span><span lang="ar">للإغلاق</span></p>
   </div>
 </dialog>
+
+<nav class="dock" id="dock" aria-label="Quick actions">
+  <a class="button" href="mailto:binthnayan@gmail.com?subject=CV%20request&body=Hi%20Yazeed%2C%0A%0AI%27d%20like%20to%20request%20your%20CV.%0A%0AName%3A%0AOrganisation%3A%0ARole%3A%0A%0AThanks%2C" data-cv-request><span lang="en">Request my CV</span><span lang="ar">اطلب سيرتي الذاتية</span></a>
+  <a class="button button--ghost" href="mailto:binthnayan@gmail.com"><span lang="en">Email</span><span lang="ar">راسلني</span></a>
+  <button class="icon-button dock__menu" type="button" aria-haspopup="dialog" aria-controls="cmd" aria-label="Menu" data-cmd-open>
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+  </button>
+</nav>
 
 <p class="sr-only" id="flash-live" role="status" aria-live="polite"></p>
 

@@ -584,6 +584,7 @@
     });
 
     trigger.addEventListener('click', show);
+    document.querySelectorAll('[data-cmd-open]').forEach(function (el) { el.addEventListener('click', show); });
     input.addEventListener('input', function () { active = 0; render(); });
 
     input.addEventListener('keydown', function (event) {
@@ -682,6 +683,30 @@
     });
   }
 
+  /* ── Dock (phones) ────────────────────────────────────────────
+     CSS only displays it under 640px; this decides when it is in view.
+     Shown once the hero has scrolled away, hidden while Contact is on
+     screen (Contact has the same actions). A passive scroll check rather
+     than an observer: two rect reads per scroll, and it behaves the same
+     in every browser. */
+
+  function initDock() {
+    var dock = document.getElementById('dock');
+    var hero = document.querySelector('.hero');
+    var contact = document.getElementById('contact');
+    if (!dock || !hero || !contact) return;
+
+    function update() {
+      var heroGone = hero.getBoundingClientRect().bottom < 0;
+      var c = contact.getBoundingClientRect();
+      var contactOnScreen = c.top < window.innerHeight && c.bottom > 0;
+      dock.classList.toggle('is-shown', heroGone && !contactOnScreen);
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
   /* ── Riyadh clock ─────────────────────────────────────────── */
 
   function initClock() {
@@ -717,6 +742,7 @@
     initCommandMenu,
     initCopyEmail,
     initCvRequest,
+    initDock,
     initClock,
     initLanguage,
     initTheme,
