@@ -3,29 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Yazeed Bin Thnayan · Healthcare, Leadership, Product</title>
+<title>Yazeed Bin Thnayan · PharmD Intern</title>
 
-<meta name="description" content="Yazeed Bin Thnayan. PharmD intern at KSAU-HS and Co-Chair of the Health Innovation Hackathon, in Riyadh.">
+<meta name="description" content="Yazeed Bin Thnayan: PharmD intern (KSAU-HS) building digital-health tools. Open to pharmacy &amp; digital-health roles from June 2027.">
 <meta name="author" content="Yazeed Bin Thnayan">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#fbfbfb" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f7f5f0">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Yazeed Bin Thnayan">
-<meta property="og:description" content="PharmD Intern · Co-Chair, HIH7 · Riyadh. Healthcare has no shortage of good ideas. I like the part where they get finished.">
+<meta property="og:description" content="PharmD intern (KSAU-HS) building digital-health tools. Open to pharmacy &amp; digital-health roles from June 2027.">
 <!-- These MUST stay absolute. LinkedIn, WhatsApp and X will not resolve a
-     relative path, and the link preview silently degrades to plain text.
-     Update the host here if the site ever moves to a custom domain. -->
-<meta property="og:url" content="https://hih2027.github.io/yazeed-portfolio/">
-<meta property="og:image" content="https://hih2027.github.io/yazeed-portfolio/assets/og.png">
+     relative path, and the link preview silently degrades to plain text. -->
+<meta property="og:url" content="https://www.yazeed.space/">
+<meta property="og:image" content="https://www.yazeed.space/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Yazeed Bin Thnayan · PharmD Intern, Co-Chair HIH7, Riyadh">
+<meta property="og:image:alt" content="Yazeed Bin Thnayan · PharmD Intern, Leader of HIH7, President of the SPSSC Technical Committee">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://hih2027.github.io/yazeed-portfolio/assets/og.png">
+<meta name="twitter:image" content="https://www.yazeed.space/assets/og.png">
 
+<link rel="canonical" href="https://www.yazeed.space/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="ar_SA">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="css/style.css">
 
 <!-- Theme and language resolved before first paint: no flash, no layout jump. -->
@@ -35,7 +39,8 @@
     root.classList.remove('no-js');
     try {
       var theme = localStorage.getItem('theme');
-      root.dataset.theme = theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      // Light is the default for everyone; dark is opt-in via the toggle.
+      root.dataset.theme = theme === 'dark' ? 'dark' : 'light';
 
       var lang = localStorage.getItem('lang');
       if (!lang) lang = (navigator.language || 'en').toLowerCase().indexOf('ar') === 0 ? 'ar' : 'en';
@@ -50,25 +55,27 @@
 </head>
 
 <body>
-<a class="skip-link" href="#main"><span lang="en">Skip to content</span><span lang="ar">تخطَّ إلى المحتوى</span></a>
+<a class="skip-link" href="#main"><span lang="en">Skip to content</span><span lang="ar">انتقل إلى المحتوى</span></a>
+
+<div class="scroll-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
 
 <header class="site-header" id="site-header">
   <div class="wrap header__inner">
-    <a class="mark" href="#top" aria-label="Yazeed Bin Thnayan">
-      <span class="mark__glyph" aria-hidden="true">ي</span>
-      <span class="mark__name"><span lang="en">Yazeed Bin Thnayan</span><span lang="ar">يزيد بن ثنيان</span></span>
+    <a class="mark" href="#top">
+      <span lang="en">Yazeed Bin Thnayan</span><span lang="ar">يزيد بن ثنيان</span>
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <ul>
-        <li><a class="nav__link" href="#work"><span lang="en">Work</span><span lang="ar">الأعمال</span></a></li>
-        <li><a class="nav__link" href="#experience"><span lang="en">Experience</span><span lang="ar">الخبرة</span></a></li>
-        <li><a class="nav__link" href="#about"><span lang="en">About</span><span lang="ar">نبذة</span></a></li>
-        <li><a class="nav__link" href="#contact"><span lang="en">Contact</span><span lang="ar">تواصل</span></a></li>
-      </ul>
+      <a class="nav__link" href="#work"><span lang="en">Work</span><span lang="ar">الأعمال</span></a>
+      <a class="nav__link" href="#about"><span lang="en">About</span><span lang="ar">نبذة</span></a>
+      <a class="nav__link" href="#contact"><span lang="en">Contact</span><span lang="ar">تواصل</span></a>
     </nav>
 
     <div class="header__actions">
+      <button class="cmd-trigger" id="cmd-open" type="button" aria-haspopup="dialog" aria-controls="cmd">
+        <span lang="en">Menu</span><span lang="ar">القائمة</span>
+        <kbd id="cmd-kbd" dir="ltr">Ctrl K</kbd>
+      </button>
       <!-- The visible glyphs are keyed to data-show, not lang, so each label can
            carry its own correct lang attribute for screen readers. -->
       <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch to Arabic">
@@ -76,7 +83,7 @@
         <span data-show="ar" lang="en" aria-hidden="true">EN</span>
       </button>
 
-      <button class="icon-button" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+      <button class="icon-button" id="theme-toggle" type="button" aria-pressed="false" aria-label="Dark theme">
         <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <circle cx="12" cy="12" r="4.2"/>
           <path d="M12 2.4v2.4M12 19.2v2.4M4.5 4.5l1.7 1.7M17.8 17.8l1.7 1.7M2.4 12h2.4M19.2 12h2.4M4.5 19.5l1.7-1.7M17.8 6.2l1.7-1.7"/>
@@ -85,57 +92,51 @@
           <path d="M20 14.4A8.4 8.4 0 1 1 9.6 4a6.9 6.9 0 0 0 10.4 10.4Z"/>
         </svg>
       </button>
-
-      <button class="icon-button menu-toggle" id="menu-toggle" type="button"
-              aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
-        <span class="menu-toggle__bar"></span>
-        <span class="menu-toggle__bar"></span>
-      </button>
     </div>
   </div>
 </header>
-
-<div class="mobile-menu" id="mobile-menu" hidden>
-  <nav aria-label="Mobile">
-    <ul>
-      <li><a href="#work"><span lang="en">Work</span><span lang="ar">الأعمال</span></a></li>
-      <li><a href="#experience"><span lang="en">Experience</span><span lang="ar">الخبرة</span></a></li>
-      <li><a href="#about"><span lang="en">About</span><span lang="ar">نبذة</span></a></li>
-      <li><a href="#contact"><span lang="en">Contact</span><span lang="ar">تواصل</span></a></li>
-    </ul>
-  </nav>
-</div>
 
 <main id="main">
 
   <!-- ── Hero ─────────────────────────────────────────────── -->
   <section class="hero" id="top">
-    <div class="wrap">
-      <p class="eyebrow" data-reveal>
-        <span lang="en">PharmD Intern · Co-Chair, HIH7 · Riyadh</span>
-        <span lang="ar">صيدلي متدرّب · نائب رئيس هاكاثون الابتكار الصحي السابع · الرياض</span>
-      </p>
-
-      <h1 class="hero__title" data-reveal style="--reveal-delay:60ms">
-        <span lang="en">Healthcare has no shortage<br>of good ideas.<br><em>I like the part where<br>they get finished.</em></span>
-        <span lang="ar">الرعاية الصحية لا تنقصها<br>الأفكار الجيدة.<br><em>وأنا يعجبني الجزء<br>الذي تُنجَز فيه.</em></span>
-      </h1>
-
-      <div class="hero__lede" data-reveal style="--reveal-delay:120ms">
-        <p lang="en">
-          I put the team together, set the bar, and stay with it until it&rsquo;s live. A brand system.
-          A website. A bot. A ceremony for four thousand people. Different objects, same job.
+    <div class="wrap hero__inner">
+      <div class="hero__text">
+        <p class="status-pill">
+          <span class="status-pill__dot" aria-hidden="true"></span>
+          <span lang="en">Open to pharmacy &amp; digital-health roles from 20 June 2027</span>
+          <span lang="ar">أبحث عن فرص في الصيدلة والصحة الرقمية ابتداءً من 20 يونيو 2027</span>
         </p>
-        <p lang="ar">
-          أُكوِّن الفريق، وأرفع المعيار، وألازم العمل حتى يخرج إلى النور. هوية بصرية. موقع. بوت.
-          حفل لأربعة آلاف شخص. أشياء مختلفة، ومهمة واحدة.
+
+        <h1 class="hero__name">
+          <span lang="en">Yazeed Bin Thnayan</span><span lang="ar">يزيد بن ثنيان</span>
+        </h1>
+
+        <p class="hero__status">
+          <span lang="en">PharmD · King Saud bin Abdulaziz University for Health Sciences · Internship year</span>
+          <span lang="ar">دكتور صيدلة · جامعة الملك سعود بن عبدالعزيز للعلوم الصحية · سنة الامتياز</span>
+        </p>
+
+        <ul class="hero__roles">
+          <li><span lang="en">Leader, HIH7</span><span lang="ar">قائد هاكاثون الابتكار الصحي السابع</span></li>
+          <li><span lang="en">President, SPSSC Technical Committee</span><span lang="ar">رئيس اللجنة التقنية بالفرع الطلابي للجمعية الصيدلية السعودية</span></li>
+        </ul>
+
+        <p class="hero__lede">
+          <span lang="en">Working where pharmacy practice meets digital health: clinical rotations by day, building tools for pharmacists and students.</span>
+          <span lang="ar">صيدلي في سنة الامتياز، أجمع بين التدريب السريري وبناء أدوات رقمية يعتمد عليها الممارسون الصحيون في عملهم.</span>
+        </p>
+
+        <p class="hero__actions">
+          <a class="button magnet" string="magnetic" string-strength="0.2" string-radius="80"
+             href="mailto:binthnayan@gmail.com?subject=CV%20request&body=Hi%20Yazeed%2C%0A%0AI%27d%20like%20to%20request%20your%20CV.%0A%0AName%3A%0AOrganisation%3A%0ARole%3A%0A%0AThanks%2C" data-cv-request>
+            <span lang="en">Request my CV</span><span lang="ar">اطلب سيرتي الذاتية</span>
+          </a>
+          <a class="button button--ghost" href="#work"><span lang="en">See my work</span><span lang="ar">شاهد أعمالي</span></a>
         </p>
       </div>
 
-      <p class="hero__actions" data-reveal style="--reveal-delay:180ms">
-        <a class="button" href="#work"><span lang="en">See the work</span><span lang="ar">شاهد الأعمال</span></a>
-        <a class="button button--quiet" href="#contact"><span lang="en">Get in touch</span><span lang="ar">تواصل معي</span></a>
-      </p>
+      <img class="hero__portrait" string="parallax" string-parallax="0.1" src="assets/portrait.jpg" width="360" height="450" alt="Yazeed Bin Thnayan">
     </div>
   </section>
 
@@ -143,400 +144,303 @@
   <section class="section" id="work" aria-labelledby="work-heading">
     <div class="wrap">
       <header class="section__head" data-reveal>
-        <p class="section__label"><span lang="en">Selected work</span><span lang="ar">مختارات من الأعمال</span></p>
-        <h2 class="section__title" id="work-heading">
-          <span lang="en">Shipped, not proposed.</span>
-          <span lang="ar">أعمال أُطلقت، لا مقترحات.</span>
-        </h2>
+        <p class="kicker"><span lang="en">Work</span><span lang="ar">الأعمال</span></p>
+        <h2 class="section__title" id="work-heading"><span lang="en">Things I built and shipped</span><span lang="ar">أعمال بنيتُها وأطلقتُها</span></h2>
       </header>
 
-      <ol class="work">
-        <li class="work__item" data-reveal>
-          <p class="work__index" aria-hidden="true">01</p>
-          <div class="work__body">
-            <h3 class="work__title">
-              <span lang="en">KSAU Hackathon Navigator</span>
-              <span lang="ar">مساعد هاكاثون كاساو الذكي</span>
-            </h3>
-            <p class="work__desc" lang="en">
-              A bilingual AI assistant that helps KSAU hackathon participants find answers,
-              understand the event, and navigate the experience through a focused conversational
-              interface.
-            </p>
-            <p class="work__desc" lang="ar">
-              مساعد ذكي ثنائي اللغة يساعد المشاركين في هاكاثون كاساو على الوصول إلى الإجابات،
-              وفهم تفاصيل الفعالية، والتنقل في تجربتهم من خلال واجهة محادثة مركّزة.
-            </p>
-            <p class="work__meta">
-              <span>2026</span>
-              <span><span lang="en">AI Product</span><span lang="ar">منتج ذكاء اصطناعي</span></span>
-              <span class="tag-live"><span lang="en">Live</span><span lang="ar">يعمل الآن</span></span>
-            </p>
-            <p class="work__links">
-              <a class="link" href="https://ksau-navi-kdzyuknu.manus.space/" target="_blank" rel="noopener noreferrer">
-                <span lang="en">Try the chatbot</span><span lang="ar">جرّب الشات بوت</span>
-              </a>
-            </p>
+      <div class="cards">
+        <article class="card card--feature" string="tilt" string-tilt-max="2" data-reveal>
+          <div class="card__media preview preview--whysoap">
+            <img class="preview__logo" src="assets/work/whysoap-logo.webp" width="520" height="149" alt="whySOAP" decoding="async">
+            <ol class="preview__steps" dir="ltr" aria-label="WhySOAP workflow">
+              <li><bdi lang="en">Case</bdi></li><li><bdi lang="en">Review</bdi></li><li><bdi lang="en">SOAP</bdi></li><li><bdi lang="en">Summary</bdi></li><li><bdi lang="en">Quiz</bdi></li>
+            </ol>
+            <div class="browser" aria-hidden="true">
+              <div class="browser__bar"><span class="browser__dots"></span><span class="browser__url" dir="ltr">whysoap.app</span></div>
+              <img src="assets/work/whysoap.webp" srcset="assets/work/whysoap-480.webp 480w, assets/work/whysoap.webp 960w"
+                   sizes="(max-width: 760px) min(440px, 100vw - 5rem), 420px" width="960" height="600" loading="lazy" decoding="async" alt="">
+            </div>
           </div>
-        </li>
-
-        <li class="work__item" data-reveal>
-          <p class="work__index" aria-hidden="true">02</p>
-          <div class="work__body">
-            <h3 class="work__title">
-              <span lang="en">HIH7 Event Website</span>
-              <span lang="ar">موقع هاكاثون الابتكار الصحي السابع</span>
-            </h3>
-            <p class="work__desc" lang="en">
-              The hackathon needed a home before registration opened. Arabic-first, one page, four
-              tracks, nine teams, carrying the event&rsquo;s navy identity from the first pixel to the
-              last. Live the same day.
-            </p>
-            <p class="work__desc" lang="ar">
-              احتاج الهاكاثون إلى واجهة قبل فتح التسجيل. صفحة واحدة بالعربية، أربعة مسارات، وتسعة
-              فرق، تحمل هوية الحدث الكحلية من أول بكسل إلى آخره. نُشرت في اليوم نفسه.
-            </p>
-            <p class="work__meta">
+          <div class="card__body">
+            <p class="card__meta">
+              <span><span lang="en">Clinical tool</span><span lang="ar">أداة سريرية</span></span>
               <span>2026</span>
+              <span class="tag tag--live"><span lang="en">Live</span><span lang="ar">متاح</span></span>
+            </p>
+            <h3 class="card__title"><a class="card__link" href="https://whysoap.app" target="_blank" rel="noopener noreferrer">WhySOAP<span class="sr-only"><span lang="en"> (opens in a new tab)</span><span lang="ar"> (يفتح في علامة تبويب جديدة)</span></span></a></h3>
+            <p class="card__desc">
+              <span lang="en">Upload a patient case and get a structured SOAP note with the clinical reasoning laid out step by step. Patient identifiers are stripped before anything is analysed.</span>
+              <span lang="ar">ارفع حالة المريض واحصل على توثيق SOAP منظّم مع توضيح الاستدلال السريري خطوة بخطوة. تُحذف بيانات المريض المعرِّفة قبل أي تحليل.</span>
+            </p>
+            <dl class="monograph">
+              <div><dt><span lang="en">Indication</span><span lang="ar">الاستخدام</span></dt><dd><span lang="en">Writing SOAP notes from case files</span><span lang="ar">كتابة توثيق SOAP من ملفات الحالات</span></dd></div>
+              <div><dt><span lang="en">Accepts</span><span lang="ar">يقبل</span></dt><dd dir="ltr">PDF · Word · CSV · JSON · Text · Image</dd></div>
+              <div><dt><span lang="en">Then</span><span lang="ar">ثم</span></dt><dd><span lang="en">Review, summary and a quiz</span><span lang="ar">مراجعة وملخص واختبار</span></dd></div>
+            </dl>
+            <p class="card__links"><span class="link link--out" aria-hidden="true" dir="ltr">whysoap.app</span></p>
+          </div>
+        </article>
+
+        <article class="card" string="tilt" string-tilt-max="3" data-reveal>
+          <div class="card__media preview preview--plants">
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true"><span class="browser__dots"></span><span class="browser__url" dir="ltr">spssc.vercel.app</span></div>
+              <img src="assets/work/plants.webp" srcset="assets/work/plants-480.webp 480w, assets/work/plants.webp 960w"
+                   sizes="(max-width: 760px) min(440px, 100vw - 5rem), 380px" width="960" height="600" loading="lazy" decoding="async"
+                   alt="Plants of the Kingdom: a map of Saudi regions with Al-Qassim selected and its plant shown">
+            </div>
+          </div>
+          <div class="card__body">
+            <p class="card__meta">
               <span><span lang="en">Web</span><span lang="ar">ويب</span></span>
-              <span class="tag-live"><span lang="en">Live</span><span lang="ar">يعمل الآن</span></span>
+              <span>2026</span>
+              <span class="tag tag--live"><span lang="en">Live</span><span lang="ar">متاح</span></span>
             </p>
-            <p class="work__links">
-              <a class="link" href="https://hih2027.github.io/Health-Innovation-hackathon/" target="_blank" rel="noopener noreferrer">
-                <span lang="en">Visit the site</span><span lang="ar">زيارة الموقع</span>
-              </a>
+            <h3 class="card__title">
+              <a class="card__link" href="https://spssc.vercel.app" target="_blank" rel="noopener noreferrer"><span lang="en">Plants of the Kingdom</span><span lang="ar">نباتات المملكة</span><span class="sr-only"><span lang="en"> (opens in a new tab)</span><span lang="ar"> (يفتح في علامة تبويب جديدة)</span></span></a>
+            </h3>
+            <p class="card__stat"><span lang="en"><strong>13</strong> regions · <strong>35K+</strong> views on the launch post</span><span lang="ar"><strong>13</strong> منطقة · أكثر من <strong>35 ألف</strong> مشاهدة لإعلان الإطلاق</span></p>
+            <p class="card__desc">
+              <span lang="en">An interactive map of the medicinal plant each region is known for, made for Saudi Pharmacist Day. I built it for the SPSSC, with content from the scientific committee and design from the design committee.</span>
+              <span lang="ar">خريطة تفاعلية للنبتة التي عرفتها كل منطقة في طبها الشعبي، بمناسبة يوم الصيدلي السعودي. بنيتُها للفرع الطلابي للجمعية الصيدلية السعودية، بمحتوى من اللجنة العلمية وتصميم من لجنة التصميم.</span>
+            </p>
+            <p class="card__links">
+              <span class="link link--out" aria-hidden="true"><span lang="en">Explore the map</span><span lang="ar">تصفّح الخريطة</span></span>
+              <a class="link link--out card__extra" href="https://x.com/spssc_sa/status/2101736141116285270" target="_blank" rel="noopener noreferrer"><span lang="en">Launch post</span><span lang="ar">إعلان الإطلاق</span></a>
             </p>
           </div>
-        </li>
+        </article>
 
-        <li class="work__item" data-reveal>
-          <p class="work__index" aria-hidden="true">03</p>
-          <div class="work__body">
-            <h3 class="work__title">
-              <span lang="en">HIH7 Telegram Bot</span>
-              <span lang="ar">بوت تيليجرام لهاكاثون الابتكار الصحي السابع</span>
+        <article class="card" string="tilt" string-tilt-max="3" data-reveal style="--reveal-delay:60ms">
+          <div class="card__media preview preview--hih7">
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true"><span class="browser__dots"></span><span class="browser__url" dir="ltr">hih2027.github.io</span></div>
+              <img src="assets/work/hih7.webp" srcset="assets/work/hih7-480.webp 480w, assets/work/hih7.webp 960w"
+                   sizes="(max-width: 760px) min(440px, 100vw - 5rem), 380px" width="960" height="600" loading="lazy" decoding="async"
+                   alt="The Health Innovation Hackathon 7 website: navy hero with the event logo and a register button">
+            </div>
+          </div>
+          <div class="card__body">
+            <p class="card__meta">
+              <span><span lang="en">Event</span><span lang="ar">فعالية</span></span>
+              <span class="tag tag--soon"><span lang="en">Upcoming</span><span lang="ar">قريبًا</span></span>
+            </p>
+            <h3 class="card__title">
+              <a class="card__link" href="https://hih2027.github.io/Health-Innovation-hackathon/" target="_blank" rel="noopener noreferrer"><span lang="en">Health Innovation Hackathon 7</span><span lang="ar">هاكاثون الابتكار الصحي السابع</span><span class="sr-only"><span lang="en"> (opens in a new tab)</span><span lang="ar"> (يفتح في علامة تبويب جديدة)</span></span></a>
             </h3>
-            <p class="work__desc" lang="en">
-              Participants needed one obvious way to reach the committee, and email was never going
-              to be it. The bot put a direct line inside the app already open on their phone.
+            <p class="card__stat"><span lang="en"><strong>21–23 Jan 2027</strong> · the previous edition drew <strong>3,211</strong> participants</span><span lang="ar"><strong>21–23 يناير 2027</strong> · استقطبت النسخة السابقة <strong>3,211</strong> مشاركًا</span></p>
+            <p class="card__desc">
+              <span lang="en">I lead the 7th Health Innovation Hackathon at KSAU-HS. Ahead of the event I have shipped its website, a Telegram bot for participants, a documented brand system and an AI assistant that answers participants&rsquo; questions.</span>
+              <span lang="ar">أقود هاكاثون الابتكار الصحي السابع في جامعة الملك سعود بن عبدالعزيز للعلوم الصحية. وقبل انطلاق الفعالية أطلقتُ موقعها، وبوت تيليجرام للمشاركين، وهوية بصرية موثقة، ومساعدًا ذكيًا يجيب عن أسئلة المشاركين.</span>
             </p>
-            <p class="work__desc" lang="ar">
-              احتاج المشاركون إلى طريق واحد واضح يصلهم باللجنة، ولم يكن البريد الإلكتروني ليكون ذلك
-              الطريق. وضع البوت خطًا مباشرًا داخل التطبيق المفتوح أصلًا على هواتفهم.
+            <p class="card__links">
+              <span class="link link--out" aria-hidden="true"><span lang="en">Website</span><span lang="ar">الموقع</span></span>
+              <a class="link link--out card__extra" href="https://t.me/HIH7_KSAU_BOT" target="_blank" rel="noopener noreferrer"><span lang="en">Telegram bot</span><span lang="ar">بوت تيليجرام</span></a>
+              <a class="link link--out card__extra" href="https://ksau-navi-kdzyuknu.manus.space/" target="_blank" rel="noopener noreferrer"><span lang="en">AI assistant</span><span lang="ar">المساعد الذكي</span></a>
             </p>
-            <p class="work__meta">
-              <span>2026</span>
+          </div>
+        </article>
+
+        <article class="card" string="tilt" string-tilt-max="3" data-reveal>
+          <div class="card__media preview preview--atheera">
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true"><span class="browser__dots"></span><span class="browser__url" dir="ltr">atheera-rho.vercel.app</span></div>
+              <img src="assets/work/atheera.webp" srcset="assets/work/atheera-480.webp 480w, assets/work/atheera.webp 960w"
+                   sizes="(max-width: 760px) min(440px, 100vw - 5rem), 380px" width="960" height="600" loading="lazy" decoding="async"
+                   alt="Atheera: a purple hero with an executive performance dashboard showing a score of 78 out of 100">
+            </div>
+          </div>
+          <div class="card__body">
+            <p class="card__meta">
               <span><span lang="en">Product</span><span lang="ar">منتج</span></span>
-              <span class="tag-live"><span lang="en">Live</span><span lang="ar">يعمل الآن</span></span>
-            </p>
-            <p class="work__links">
-              <a class="link" href="https://t.me/HIH7_KSAU_BOT" target="_blank" rel="noopener noreferrer" dir="ltr">@HIH7_KSAU_BOT</a>
-            </p>
-          </div>
-        </li>
-
-        <li class="work__item" data-reveal>
-          <p class="work__index" aria-hidden="true">04</p>
-          <div class="work__body">
-            <h3 class="work__title">
-              <span lang="en">HIH7 Brand System</span>
-              <span lang="ar">الهوية البصرية لهاكاثون الابتكار الصحي السابع</span>
-            </h3>
-            <p class="work__desc" lang="en">
-              An identity, not a logo. Construction and proportion, the slogan, the type family, grid
-              and layout, the eight tracks, and how all of it behaves in print and on social. Written
-              down so the next committee never has to guess.
-            </p>
-            <p class="work__desc" lang="ar">
-              هوية كاملة، لا شعارًا فحسب. البناء والنِّسب، والشعار النصي، وعائلة الخط، والشبكة
-              والتخطيط، والمسارات الثمانية، وسلوك ذلك كله في المطبوعات ووسائل التواصل. موثَّقًا
-              حتى لا تحتاج اللجنة القادمة إلى التخمين.
-            </p>
-            <p class="work__meta">
               <span>2026</span>
-              <span><span lang="en">Brand</span><span lang="ar">هوية</span></span>
-              <span><span lang="en">Directed with my team</span><span lang="ar">بإشرافي مع فريقي</span></span>
+              <span class="tag tag--paused"><span lang="en">Paused</span><span lang="ar">متوقف</span></span>
             </p>
-          </div>
-        </li>
-
-        <li class="work__item" data-reveal>
-          <p class="work__index" aria-hidden="true">05</p>
-          <div class="work__body">
-            <h3 class="work__title">
-              <span lang="en">Vascodipine&reg; Product Strategy</span>
-              <span lang="ar">استراتيجية منتج فاسكوديبين&reg;</span>
+            <h3 class="card__title">
+              <a class="card__link" href="https://atheera-rho.vercel.app" target="_blank" rel="noopener noreferrer"><span lang="en">Atheera</span><span lang="ar">أثيرا</span><span class="sr-only"><span lang="en"> (opens in a new tab)</span><span lang="ar"> (يفتح في علامة تبويب جديدة)</span></span></a>
             </h3>
-            <p class="work__desc" lang="en">
-              One summer at Riyadh Pharma and one product to make the case for. I researched the
-              positioning, rebuilt the argument for the packaging, developed the patient-adherence
-              angle, and presented the whole thing to the business.
+            <p class="card__stat"><span lang="en">Last deployed <strong>8 Aug 2026</strong></span><span lang="ar">آخر نشر <strong>8 أغسطس 2026</strong></span></p>
+            <p class="card__desc">
+              <span lang="en">A workspace for healthcare consulting teams: turn a client&rsquo;s health data into a performance dashboard, improvement projects with owners and targets, and a 12-month roadmap. CSV files are processed in the browser.</span>
+              <span lang="ar">مساحة عمل لفرق الاستشارات الصحية: تحوّل بيانات العميل الصحية إلى لوحة أداء، ومشاريع تحسين محددة الأهداف والمسؤولين، وخارطة طريق لمدة 12 شهرًا. وتُعالَج ملفات CSV داخل المتصفح.</span>
             </p>
-            <p class="work__desc" lang="ar">
-              صيف واحد في شركة الرياض للأدوية، ومنتج واحد أبني له الحجة. بحثتُ التموضع، وأعدتُ بناء
-              الحجة حول التغليف، وطوّرتُ زاوية التزام المريض بالعلاج، وعرضتُ ذلك كله على الشركة.
-            </p>
-            <p class="work__meta">
+            <p class="card__links"><span class="link link--out" aria-hidden="true"><span lang="en">Explore the demo</span><span lang="ar">جرّب النسخة التجريبية</span></span></p>
+          </div>
+        </article>
+
+        <article class="card" string="tilt" string-tilt-max="3" data-reveal style="--reveal-delay:60ms">
+          <div class="card__media preview preview--kasch" aria-hidden="true">
+            <div class="browser">
+              <div class="browser__bar"><span class="browser__dots"></span><span class="browser__url" dir="ltr">Power BI · KASCH Pharmacy</span></div>
+              <div class="chart">
+                <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMax meet">
+                  <path class="chart-area" d="M0 150 L40 138 L80 142 L120 118 L160 124 L200 92 L240 70 L280 58 L320 44 L320 200 L0 200 Z"/>
+                  <path class="chart-line" d="M0 150 L40 138 L80 142 L120 118 L160 124 L200 92 L240 70 L280 58 L320 44"/>
+                  <g class="chart-bars">
+                    <rect x="18" y="168" width="22" height="32"/><rect x="58" y="160" width="22" height="40"/>
+                    <rect x="98" y="172" width="22" height="28"/><rect x="138" y="156" width="22" height="44"/>
+                    <rect x="178" y="150" width="22" height="50"/><rect x="218" y="162" width="22" height="38"/>
+                    <rect x="258" y="146" width="22" height="54"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card__body">
+            <p class="card__meta">
+              <span><span lang="en">Analytics</span><span lang="ar">تحليل البيانات</span></span>
               <span>2026</span>
-              <span><span lang="en">Strategy</span><span lang="ar">استراتيجية</span></span>
-              <span><span lang="en">Riyadh Pharma</span><span lang="ar">الرياض للأدوية</span></span>
+              <span class="tag"><span lang="en">Internal</span><span lang="ar">داخلي</span></span>
+            </p>
+            <h3 class="card__title"><span lang="en">KASCH Pharmacy Dashboard</span><span lang="ar">لوحة بيانات صيدلية KASCH</span></h3>
+            <p class="card__stat"><span lang="en"><strong>9</strong> report pages · <strong>101</strong> measures · <strong>21</strong> data tables</span><span lang="ar"><strong>9</strong> صفحات · <strong>101</strong> مقياس · <strong>21</strong> جدول بيانات</span></p>
+            <p class="card__desc">
+              <span lang="en">A Power BI dashboard for the pharmacy at King Abdullah Specialized Children&rsquo;s Hospital, covering TPN, IV preparation, the refill centre and take-home medication. Every figure is checked against its source report.</span>
+              <span lang="ar">لوحة Power BI لصيدلية مستشفى الملك عبدالله التخصصي للأطفال، تغطي التغذية الوريدية، وتحضير المحاليل الوريدية، ومركز إعادة صرف الوصفات، وأدوية الخروج. وجميع أرقامها مُطابَقة مع التقارير المصدرية.</span>
             </p>
           </div>
-        </li>
-      </ol>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- ── Scale ────────────────────────────────────────────── -->
-  <section class="section section--rule" aria-labelledby="scale-heading">
+  <!-- ── About, as a SOAP note ────────────────────────────── -->
+  <section class="section" id="about" aria-labelledby="about-heading">
     <div class="wrap">
       <header class="section__head" data-reveal>
-        <p class="section__label"><span lang="en">Leadership at scale</span><span lang="ar">القيادة على نطاق واسع</span></p>
-        <h2 class="section__title" id="scale-heading">
-          <span lang="en">The numbers behind the titles.</span>
-          <span lang="ar">الأرقام خلف المناصب.</span>
-        </h2>
+        <p class="kicker"><span lang="en">About</span><span lang="ar">نبذة</span></p>
+        <h2 class="section__title" id="about-heading"><span lang="en">About me, as a SOAP note</span><span lang="ar">نبذة عني على هيئة توثيق SOAP</span></h2>
       </header>
 
-      <dl class="figures">
-        <div class="figure" data-reveal>
-          <dt>4,000<span aria-hidden="true">+</span></dt>
+      <dl class="soap" data-reveal>
+        <div class="soap__row">
+          <dt><span class="soap__letter" aria-hidden="true">S</span><span class="soap__name"><span lang="en">Subjective</span><span lang="ar">ذاتي</span></span></dt>
           <dd>
-            <span lang="en">Guests hosted across two consecutive graduation ceremonies. Two days, no second chances.</span>
-            <span lang="ar">ضيف استُقبلوا في حفلَي تخرج متتاليين. يومان، بلا فرصة ثانية.</span>
+            <span lang="en">A PharmD intern in Riyadh who likes the part where ideas get finished. I would rather ship a small tool people use than pitch a big one.</span>
+            <span lang="ar">صيدلي امتياز في الرياض، يستهويني الجزء الذي تتحول فيه الفكرة إلى عمل منجَز. أفضّل أن أطلق أداة صغيرة يستخدمها الناس على أن أعرض فكرة كبيرة لا تُنفَّذ.</span>
           </dd>
         </div>
-        <div class="figure" data-reveal style="--reveal-delay:60ms">
-          <dt>9</dt>
+        <div class="soap__row">
+          <dt><span class="soap__letter" aria-hidden="true">O</span><span class="soap__name"><span lang="en">Objective</span><span lang="ar">موضوعي</span></span></dt>
           <dd>
-            <span lang="en">Committees under the hackathon I co-chair: recruitment, interviews, operations, marketing.</span>
-            <span lang="ar">لجان تحت الهاكاثون الذي أشارك في رئاسته: التوظيف والمقابلات والعمليات والتسويق.</span>
+            <span lang="en">PharmD, KSAU-HS. Inpatient pharmacy rotation completed; outpatient rotation now. Joining the Leaders Hub 2026 of the Saudi Society of Clinical Pharmacy (SSCP). Arabic (native), English (professional).</span>
+            <span lang="ar">دكتور صيدلة من جامعة الملك سعود بن عبدالعزيز للعلوم الصحية. أنهيتُ تدريب صيدلية التنويم، وأتدرّب حاليًا في صيدلية العيادات الخارجية. عضو في برنامج <bdi lang="en">SSCP Leaders Hub 2026</bdi> التابع للجمعية السعودية للصيدلة الإكلينيكية. العربية (لغة أم)، والإنجليزية (مستوى مهني).</span>
           </dd>
         </div>
-        <div class="figure" data-reveal style="--reveal-delay:120ms">
-          <dt>20<span aria-hidden="true">+</span></dt>
+        <div class="soap__row">
+          <dt><span class="soap__letter" aria-hidden="true">A</span><span class="soap__name"><span lang="en">Assessment</span><span lang="ar">تقييم</span></span></dt>
           <dd>
-            <span lang="en">Months running public relations for university conferences and national events.</span>
-            <span lang="ar">شهرًا في إدارة العلاقات العامة لمؤتمرات جامعية وفعاليات وطنية.</span>
+            <span lang="en">Good at turning clinical problems into working tools, leading volunteer teams to a hard deadline, and explaining both sides to each other: pharmacists to engineers, and back.</span>
+            <span lang="ar">أُجيد تحويل المشكلات السريرية إلى أدوات تعمل، وقيادة الفرق التطوعية حتى الموعد النهائي، والوساطة بين الطرفين: أشرح للمهندسين ما يحتاجه الصيدلي، وللصيدلي ما تستطيعه التقنية.</span>
           </dd>
         </div>
-        <div class="figure" data-reveal style="--reveal-delay:180ms">
-          <dt><span lang="en">1st</span><span lang="ar">الأول</span></dt>
+        <div class="soap__row">
+          <dt><span class="soap__letter" aria-hidden="true">P</span><span class="soap__name"><span lang="en">Plan</span><span lang="ar">خطة</span></span></dt>
           <dd>
-            <span lang="en">Pharmaceutical Care Challenge, PNU College of Pharmacy. Clinical judgement, under a clock.</span>
-            <span lang="ar">تحدي الرعاية الصيدلية، كلية الصيدلة بجامعة الأميرة نورة. حكم إكلينيكي تحت ضغط الوقت.</span>
+            <span lang="en">Finish the internship year, build an agentic-AI project from what I learned at SDAIA, and join a team in pharmacy or digital health.</span>
+            <span lang="ar">إكمال سنة الامتياز، وبناء مشروع في أنظمة الذكاء الاصطناعي الوكيلة (Agentic AI) مما تعلمته في برنامج سدايا، والانضمام إلى فريق في الصيدلة أو الصحة الرقمية.</span>
           </dd>
         </div>
       </dl>
-    </div>
-  </section>
 
-  <!-- ── Experience ───────────────────────────────────────── -->
-  <section class="section" id="experience" aria-labelledby="experience-heading">
-    <div class="wrap">
-      <header class="section__head" data-reveal>
-        <p class="section__label"><span lang="en">Experience</span><span lang="ar">الخبرة</span></p>
-        <h2 class="section__title" id="experience-heading">
-          <span lang="en">The pharmacy counter, the committee room, the stage.</span>
-          <span lang="ar">طاولة الصيدلية، وغرفة اللجنة، والمنصة.</span>
-        </h2>
+      <header class="subhead-group" data-reveal>
+        <p class="kicker"><span lang="en">Recognition</span><span lang="ar">التقدير</span></p>
+        <h3 class="subhead"><span lang="en">Credentials</span><span lang="ar">الشهادات والإنجازات</span></h3>
       </header>
-
-      <ol class="roles">
-        <li class="role" data-reveal>
-          <p class="role__period"><span lang="en">Feb 2026 &ndash; Present</span><span lang="ar">فبراير 2026 &ndash; حتى الآن</span></p>
-          <div>
-            <h3 class="role__title"><span lang="en">Co-Chair, Health Innovation Hackathon</span><span lang="ar">نائب رئيس هاكاثون الابتكار الصحي</span></h3>
-            <p class="role__org"><span lang="en">King Saud bin Abdulaziz University for Health Sciences</span><span lang="ar">جامعة الملك سعود بن عبدالعزيز للعلوم الصحية</span></p>
-            <p class="role__note"><span lang="en">Strategy, committee leadership, recruitment and interviews, operations, marketing and brand, and the stakeholder conversations that keep all of it moving.</span><span lang="ar">الاستراتيجية، وقيادة اللجان، والتوظيف والمقابلات، والعمليات، والتسويق والهوية، والحوارات مع أصحاب المصلحة التي تُبقي ذلك كله يتحرك.</span></p>
-          </div>
+      <ul class="rows" data-reveal>
+        <li class="row">
+          <span class="row__title"><bdi lang="en">Advanced Agentic AI Systems Engineering</bdi></span>
+          <span class="row__note"><span lang="en">SDAIA · 2026</span><span lang="ar">سدايا · 2026</span></span>
         </li>
-
-        <li class="role" data-reveal>
-          <p class="role__period"><span lang="en">Jul 2026 &ndash; Present</span><span lang="ar">يوليو 2026 &ndash; حتى الآن</span></p>
-          <div>
-            <h3 class="role__title"><span lang="en">Community Pharmacist, Intern</span><span lang="ar">صيدلي مجتمعي، متدرّب</span></h3>
-            <p class="role__org"><span lang="en">Nahdi Medical Co. &middot; Riyadh</span><span lang="ar">شركة النهدي الطبية &middot; الرياض</span></p>
-          </div>
+        <li class="row">
+          <span class="row__title"><span lang="en">1st Place, Pharmaceutical Care Challenge</span><span lang="ar">المركز الأول، تحدي الرعاية الصيدلية</span></span>
+          <span class="row__note"><span lang="en">PNU College of Pharmacy · 2025</span><span lang="ar">كلية الصيدلة بجامعة الأميرة نورة · 2025</span></span>
         </li>
-
-        <li class="role" data-reveal>
-          <p class="role__period"><span lang="en">Jul 2026</span><span lang="ar">يوليو 2026</span></p>
-          <div>
-            <h3 class="role__title"><span lang="en">Intern</span><span lang="ar">متدرّب</span></h3>
-            <p class="role__org"><span lang="en">Riyadh Pharma &middot; Riyadh</span><span lang="ar">شركة الرياض للأدوية &middot; الرياض</span></p>
-            <p class="role__note"><span lang="en">Product strategy and market analysis, ending in a set of recommendations delivered to the business.</span><span lang="ar">استراتيجية المنتج وتحليل السوق، انتهت بتوصيات قُدِّمت إلى الشركة.</span></p>
-          </div>
-        </li>
-
-        <li class="role" data-reveal>
-          <p class="role__period"><span lang="en">Aug 2025</span><span lang="ar">أغسطس 2025</span></p>
-          <div>
-            <h3 class="role__title"><span lang="en">Community Pharmacist, Intern</span><span lang="ar">صيدلي مجتمعي، متدرّب</span></h3>
-            <p class="role__org"><span lang="en">Innova Pharmacy</span><span lang="ar">صيدليات إنوفا</span></p>
-          </div>
-        </li>
-
-        <li class="role" data-reveal>
-          <p class="role__period"><span lang="en">Jan 2024 &ndash; Mar 2025</span><span lang="ar">يناير 2024 &ndash; مارس 2025</span></p>
-          <div>
-            <h3 class="role__title"><span lang="en">Public Relations Manager</span><span lang="ar">مدير العلاقات العامة</span></h3>
-            <p class="role__org"><span lang="en">Thaheen &middot; Riyadh</span><span lang="ar">ذهين &middot; الرياض</span></p>
-          </div>
-        </li>
-      </ol>
-
-      <h3 class="subhead" data-reveal><span lang="en">Also led</span><span lang="ar">وقُدتُ أيضًا</span></h3>
-      <ul class="chips" data-reveal>
-        <li><span lang="en">PR Leader, 10th Health Professions Conference</span><span lang="ar">قائد العلاقات العامة، مؤتمر المهن الصحية العاشر</span></li>
-        <li><span lang="en">Organisation Leader, 9th Health Professions Conference</span><span lang="ar">قائد التنظيم، مؤتمر المهن الصحية التاسع</span></li>
-        <li><span lang="en">Team Leader, Graduation ceremonies</span><span lang="ar">قائد فريق، حفلات التخرج</span></li>
-        <li><span lang="en">PR Leader, National Day 2023 &amp; 2024</span><span lang="ar">قائد العلاقات العامة، اليوم الوطني 2023 و2024</span></li>
-        <li><span lang="en">PR Committee, Saudi Pharmaceutical Society Student Chapter</span><span lang="ar">لجنة العلاقات العامة، الجمعية السعودية للصيدلة فرع الطلاب</span></li>
-        <li><span lang="en">Event Coordinator, Naira volunteer</span><span lang="ar">منسق فعاليات، تطوع نيرة</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ── Credentials ──────────────────────────────────────── -->
-  <section class="section section--rule" aria-labelledby="credentials-heading">
-    <div class="wrap">
-      <header class="section__head" data-reveal>
-        <p class="section__label"><span lang="en">Credentials</span><span lang="ar">الاعتمادات</span></p>
-        <h2 class="section__title" id="credentials-heading">
-          <span lang="en">The clinical side, on paper.</span>
-          <span lang="ar">الجانب الإكلينيكي، موثَّقًا.</span>
-        </h2>
-      </header>
-
-      <ul class="creds">
-        <li data-reveal>
-          <h3><span lang="en">Good Clinical Practice (GCP)</span><span lang="ar">الممارسة السريرية الجيدة (GCP)</span></h3>
-          <p><span lang="en">National Institute on Drug Abuse &middot; 2026&ndash;2029</span><span lang="ar">المعهد الوطني لتعاطي المخدرات &middot; 2026&ndash;2029</span></p>
-        </li>
-        <li data-reveal style="--reveal-delay:60ms">
-          <h3><span lang="en">1st Place, Pharmaceutical Care Challenge</span><span lang="ar">المركز الأول، تحدي الرعاية الصيدلية</span></h3>
-          <p><span lang="en">PNU College of Pharmacy &middot; 2025</span><span lang="ar">كلية الصيدلة، جامعة الأميرة نورة &middot; 2025</span></p>
-        </li>
-        <li data-reveal style="--reveal-delay:120ms">
-          <h3><span lang="en">Best Poster, 3rd Place</span><span lang="ar">أفضل ملصق، المركز الثالث</span></h3>
-          <p><span lang="en">OTC Day, KSAU College of Pharmacy &middot; 2024</span><span lang="ar">يوم الأدوية اللاوصفية، كلية الصيدلة بجامعة الملك سعود بن عبدالعزيز &middot; 2024</span></p>
+        <li class="row">
+          <span class="row__title"><span lang="en">Good Clinical Practice (GCP) certified</span><span lang="ar">شهادة الممارسة السريرية الجيدة (GCP)</span></span>
+          <span class="row__note">2026&ndash;2029</span>
         </li>
       </ul>
-    </div>
-  </section>
-
-  <!-- ── About ────────────────────────────────────────────── -->
-  <section class="section" id="about" aria-labelledby="about-heading">
-    <div class="wrap about">
-      <header class="section__head" data-reveal>
-        <p class="section__label"><span lang="en">About</span><span lang="ar">نبذة</span></p>
-        <h2 class="section__title" id="about-heading">
-          <span lang="en">A pharmacist by training, with a habit of finishing what I start.</span>
-          <span lang="ar">صيدلي بالتكوين، ولديّ عادة إنهاء ما أبدأه.</span>
-        </h2>
-      </header>
-
-      <div class="about__grid">
-        <figure class="about__portrait" data-reveal>
-          <img src="assets/portrait.jpg" width="900" height="1125" loading="lazy" decoding="async"
-               alt="Yazeed Bin Thnayan">
-        </figure>
-
-        <div class="prose" data-reveal style="--reveal-delay:60ms">
-          <p lang="en">
-            The clinical half is straightforward: a PharmD at KSAU-HS, GCP certification, first place
-            in the Pharmaceutical Care Challenge. I know what happens on the other side of the
-            counter, and I know why it matters.
-          </p>
-          <p lang="ar">
-            النصف الإكلينيكي واضح: دكتور صيدلة في جامعة الملك سعود بن عبدالعزيز للعلوم الصحية، وشهادة
-            الممارسة السريرية الجيدة، ومركز أول في تحدي الرعاية الصيدلية. أعرف ما يجري على الجهة
-            الأخرى من الطاولة، وأعرف لماذا يهم.
-          </p>
-          <p lang="en">
-            The other half started because someone had to decide what got built, find the people who
-            could build it, and keep it from stalling in a group chat. I kept ending up as that
-            person, and eventually stopped treating it as a side role.
-          </p>
-          <p lang="ar">
-            أما النصف الآخر فبدأ لأن أحدهم كان عليه أن يقرر ما الذي يُبنى، ويجد من يبنيه، ويمنع
-            توقّف العمل عند محادثة جماعية. وجدتُ نفسي ذلك الشخص مرة بعد مرة، حتى كففتُ عن اعتباره
-            دورًا جانبيًا.
-          </p>
-          <p lang="en">
-            I&rsquo;m still early, and I know it. What I&rsquo;m sure of is where I want to work: between
-            healthcare, technology and design, close enough to the clinic to know what matters.
-          </p>
-          <p lang="ar">
-            ما زلتُ في البداية، وأعرف ذلك. لكن ما أنا واثق منه هو المكان الذي أريد العمل فيه: بين
-            الرعاية الصحية والتقنية والتصميم، قريبًا من العيادة بما يكفي لأعرف ما يهم.
-          </p>
-        </div>
-      </div>
-
-      <div class="capabilities" data-reveal style="--reveal-delay:120ms">
-        <div>
-          <h3><span lang="en">Leadership</span><span lang="ar">القيادة</span></h3>
-          <ul>
-            <li><span lang="en">Strategic planning</span><span lang="ar">التخطيط الاستراتيجي</span></li>
-            <li><span lang="en">Committee management</span><span lang="ar">إدارة اللجان</span></li>
-            <li><span lang="en">Recruitment &amp; interviewing</span><span lang="ar">التوظيف والمقابلات</span></li>
-            <li><span lang="en">Stakeholder communication</span><span lang="ar">التواصل مع أصحاب المصلحة</span></li>
-            <li><span lang="en">Public speaking</span><span lang="ar">التحدث أمام الجمهور</span></li>
-          </ul>
-        </div>
-        <div>
-          <h3><span lang="en">Product &amp; brand</span><span lang="ar">المنتج والهوية</span></h3>
-          <ul>
-            <li><span lang="en">Brand &amp; identity</span><span lang="ar">العلامة والهوية</span></li>
-            <li><span lang="en">Product development</span><span lang="ar">تطوير المنتج</span></li>
-            <li><span lang="en">Market research</span><span lang="ar">أبحاث السوق</span></li>
-            <li><span lang="en">Content marketing</span><span lang="ar">تسويق المحتوى</span></li>
-            <li><span lang="en">Public relations</span><span lang="ar">العلاقات العامة</span></li>
-          </ul>
-        </div>
-        <div>
-          <h3><span lang="en">Clinical &amp; research</span><span lang="ar">الإكلينيكي والبحث</span></h3>
-          <ul>
-            <li><span lang="en">Pharmaceutical sciences</span><span lang="ar">العلوم الصيدلانية</span></li>
-            <li><span lang="en">Good Clinical Practice</span><span lang="ar">الممارسة السريرية الجيدة</span></li>
-            <li><span lang="en">Clinical research &amp; trials</span><span lang="ar">البحوث والتجارب السريرية</span></li>
-            <li><span lang="en">Pharmacokinetics</span><span lang="ar">الحركية الدوائية</span></li>
-            <li><span lang="en">Research methods</span><span lang="ar">مناهج البحث</span></li>
-          </ul>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- ── Contact ──────────────────────────────────────────── -->
-  <section class="section section--rule" id="contact" aria-labelledby="contact-heading">
-    <div class="wrap contact">
-      <p class="section__label" data-reveal><span lang="en">Contact</span><span lang="ar">تواصل</span></p>
-      <h2 class="contact__title" id="contact-heading" data-reveal style="--reveal-delay:60ms">
-        <span lang="en">If you&rsquo;re building at the edge of healthcare, I&rsquo;d like to hear about it.</span>
-        <span lang="ar">إن كنت تبني شيئًا على حافة الرعاية الصحية، فأنا أودّ أن أسمع عنه.</span>
-      </h2>
+  <section class="section contact" id="contact" aria-labelledby="contact-heading">
+    <div class="wrap">
+      <div class="contact__box" data-reveal>
+        <p class="kicker"><span lang="en">Contact</span><span lang="ar">تواصل</span></p>
+        <h2 class="section__title" id="contact-heading"><span lang="en">Let&rsquo;s work together.</span><span lang="ar">لنعمل معًا.</span></h2>
+        <p class="contact__text">
+          <span lang="en">Open to pharmacy, digital-health and graduate-programme roles from 20 June 2027. Email is the fastest way to reach me.</span>
+          <span lang="ar">أبحث عن فرص في الصيدلة والصحة الرقمية وبرامج الخريجين ابتداءً من 20 يونيو 2027. البريد الإلكتروني أسرع وسيلة للتواصل معي.</span>
+        </p>
+        <p class="contact__actions">
+          <a class="button magnet" string="magnetic" string-strength="0.2" string-radius="80" href="mailto:binthnayan@gmail.com?subject=CV%20request&body=Hi%20Yazeed%2C%0A%0AI%27d%20like%20to%20request%20your%20CV.%0A%0AName%3A%0AOrganisation%3A%0ARole%3A%0A%0AThanks%2C" data-cv-request>
+            <span lang="en">Request my CV</span><span lang="ar">اطلب سيرتي الذاتية</span>
+          </a>
+          <a class="button button--ghost" href="mailto:binthnayan@gmail.com">
+            <span lang="en">Email me</span><span lang="ar">راسلني</span>
+          </a>
+          <button class="button button--ghost" type="button" data-copy-email>
+            <span lang="en">Copy email</span><span lang="ar">انسخ البريد</span>
+          </button>
+        </p>
+        <p class="contact__links">
+          <a class="link link--out" href="https://www.linkedin.com/in/yazeedbinthnayan" target="_blank" rel="me noopener noreferrer">LinkedIn</a>
+          <a class="link link--out" href="https://wa.me/966510516678" target="_blank" rel="noopener noreferrer"><span lang="en">WhatsApp</span><span lang="ar">واتساب</span></a>
+        </p>
+      </div>
+    </div>
+  </section>
 
-      <p class="contact__links" data-reveal style="--reveal-delay:120ms">
-        <a class="contact__primary" href="https://www.linkedin.com/in/yazeedbinthnayan" target="_blank" rel="me noopener noreferrer">LinkedIn</a>
-        <a class="contact__primary" href="https://wa.me/966510516678" target="_blank" rel="noopener noreferrer">
-          <span lang="en">WhatsApp</span><span lang="ar">واتساب</span>
-        </a>
-        <a class="contact__primary" href="mailto:binthnayan@gmail.com" dir="ltr">binthnayan@gmail.com</a>
-      </p>
+  <!-- ── Play: a sign-off, after the serious part ─────────── -->
+  <section class="section" id="play" aria-labelledby="play-heading">
+    <div class="wrap">
+      <div class="play__grid" data-reveal>
+        <div class="play__intro">
+          <p class="kicker"><span lang="en">Before you go</span><span lang="ar">قبل أن تغادر</span></p>
+          <h2 class="play__title" id="play-heading"><span lang="en">A quick round of XO?</span><span lang="ar">جولة XO سريعة؟</span></h2>
+          <p class="play__text">
+            <span lang="en">You&rsquo;re X. We take turns starting, and I rarely slip. Good luck.</span>
+            <span lang="ar">أنت X. نتناوب على البدء، ونادرًا ما أخطئ. بالتوفيق.</span>
+          </p>
+          <dl class="score">
+            <div><dt><span lang="en">You</span><span lang="ar">أنت</span></dt><dd id="xo-score-x">0</dd></div>
+            <div><dt><span lang="en">Draw</span><span lang="ar">تعادل</span></dt><dd id="xo-score-d">0</dd></div>
+            <div><dt><span lang="en">Me</span><span lang="ar">أنا</span></dt><dd id="xo-score-o">0</dd></div>
+          </dl>
+          <p class="xo__status" id="xo-status" role="status" aria-live="polite"></p>
+          <button class="button button--ghost" id="xo-reset" type="button"><span lang="en">New round</span><span lang="ar">جولة جديدة</span></button>
+        </div>
+        <div class="xo" id="xo" role="group" aria-label="XO board" dir="ltr"></div>
+      </div>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
-  <div class="wrap footer__inner">
-    <p><span lang="en">&copy; <span class="year">2026</span> Yazeed Bin Thnayan &middot; Riyadh</span><span lang="ar">&copy; <span class="year">2026</span> يزيد بن ثنيان &middot; الرياض</span></p>
-    <a class="link" href="#top"><span lang="en">Back to top</span><span lang="ar">إلى الأعلى</span></a>
+  <div class="wrap">
+    <div class="footer__inner">
+      <p><span lang="en">&copy; <span class="year">2026</span> Yazeed Bin Thnayan</span><span lang="ar">&copy; <span class="year">2026</span> يزيد بن ثنيان</span></p>
+      <p class="clock"><span class="clock__dot" aria-hidden="true"></span><span lang="en">Riyadh</span><span lang="ar">الرياض</span> <time id="clock" dir="ltr"></time></p>
+    </div>
   </div>
 </footer>
 
+<dialog class="cmd" id="cmd" aria-label="Command menu">
+  <div class="cmd__box">
+    <input class="cmd__input" id="cmd-input" type="text" autocomplete="off" spellcheck="false"
+           role="combobox" aria-controls="cmd-list" aria-expanded="true" aria-autocomplete="list"
+           aria-label="Search commands" placeholder="Type a command…" data-placeholder-ar="اكتب أمرًا…">
+    <ul class="cmd__list" id="cmd-list" role="listbox" aria-label="Commands"></ul>
+    <p class="cmd__empty" id="cmd-empty" role="status" aria-live="polite"></p>
+    <p class="cmd__hint" dir="ltr"><kbd>↑</kbd><kbd>↓</kbd> <span lang="en">to move</span><span lang="ar">للتنقل</span> · <kbd>Enter</kbd> <span lang="en">to choose</span><span lang="ar">للاختيار</span> · <kbd>Esc</kbd> <span lang="en">to close</span><span lang="ar">للإغلاق</span></p>
+  </div>
+</dialog>
+
+<p class="sr-only" id="flash-live" role="status" aria-live="polite"></p>
+
 <script src="js/main.js" defer></script>
+<script src="js/vendor/string-tune-1.2.5.js" defer></script>
 </body>
 </html>
