@@ -75,9 +75,10 @@ WhatsApp drops to a small thumbnail. Regenerate it after any change to the name,
 
 ## Signature
 
-The mark is «يزيد» in Aref Ruqaa with an underline that turns into a heartbeat. It appears in the
-header (inline SVG, the stroke draws itself once), on the share card, and, reduced to the initial ي
-on its pulse, as the site icon (`favicon-32.png`, `icon-192.png`, `apple-touch-icon.png`).
+The mark is «بن ثنيان» handwritten in Aref Ruqaa, slanted, with a stroke that leaves the final ن
+and sweeps back under the name. It is navy (cream in the dark theme) and appears in the header
+(inline SVG; the font is subset to the five letters it uses), on the share card, and in white on
+navy as the site icon (`favicon-32.png`, `icon-192.png`, `apple-touch-icon.png`).
 
 `og:url`, `og:image` and `twitter:image` are absolute and point at https://www.yazeed.space/.
 They must stay absolute: crawlers will not resolve a relative path, and the card silently falls back

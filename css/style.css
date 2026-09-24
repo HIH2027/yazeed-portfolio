@@ -217,22 +217,16 @@ a { color: inherit; }
   white-space: nowrap;
 }
 
-/* The signature: «يزيد» in Ruqaa, underlined by a stroke that turns into a
-   heartbeat. The same mark appears on the share card and the site icon. */
-.signature { width: 108px; height: auto; flex: none; margin-block: -6px; color: var(--accent); overflow: visible; }
-.signature text { fill: currentColor; font-family: "Aref Ruqaa", var(--font-ar); font-weight: 700; }
-.signature path { fill: none; stroke: currentColor; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
-.signature circle { fill: var(--highlight); }
+/* The signature: «بن ثنيان» handwritten in Ruqaa, slanted, with a stroke
+   that leaves the final ن and sweeps back under the name. Navy, like the
+   share card and the site icon; cream in the dark theme. */
+.signature { width: 118px; height: auto; flex: none; margin-block: -8px; fill: #0b1f3a; overflow: visible; }
+.signature text { font-family: "Aref Ruqaa", var(--font-ar); font-weight: 700; }
+[data-theme="dark"] .signature { fill: var(--text); }
 
 @media (max-width: 640px) {
   .mark__name { display: none; }
-  .signature { width: 96px; }
-}
-
-/* The stroke draws itself once on load. */
-@media (prefers-reduced-motion: no-preference) {
-  .signature path { stroke-dasharray: 520; stroke-dashoffset: 520; animation: sign 1.4s var(--ease) 0.3s forwards; }
-  @keyframes sign { to { stroke-dashoffset: 0; } }
+  .signature { width: 104px; }
 }
 
 .nav {
