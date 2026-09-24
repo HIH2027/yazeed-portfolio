@@ -20,38 +20,40 @@
   --dur: 240ms;
   --dur-slow: 560ms;
 
-  /* Light — "a clean pharmacy on a sunny morning": warm paper, pine-green
-     ink, one small saffron note. Every pair below meets WCAG AA. */
+  /* Light: navy ink on warm paper, a clear blue for links and labels, one
+     small saffron note. Matches the «بن ثنيان» signature. Every pair meets WCAG AA. */
 
   /* Surfaces */
   --bg: #f7f5f0;
   --surface: #ffffff;
   --surface-2: #fbfaf6;
-  --wash: #eaf3ec;
+  --wash: #eaeff7;
   --rule: #e4dfd4;          /* decorative dividers only */
-  --rule-strong: #7a837c;   /* control boundaries: 3:1 on bg and surface */
+  --rule-strong: #7a808b;   /* control boundaries: 3:1 on bg and surface */
   /* Text */
-  --text: #13201a;
-  --text-2: #46534c;
-  --text-3: #5f6963;
+  --text: #121a26;
+  --text-2: #465060;
+  --text-3: #5d6573;
   /* Brand */
-  --accent: #0a6b52;
+  --brand: #0b1f3a;          /* primary buttons, XO win, signature */
+  --brand-ink: #ffffff;
+  --accent: #1f56b0;         /* links, kickers, tags, nav underline, progress, chart */
   --accent-ink: #ffffff;
-  --accent-soft: #e3f1ea;
+  --accent-soft: #e6eefa;
   --highlight: #94600f;     /* saffron, dark enough for small text */
   --highlight-soft: #f7ecda;
   --live: #15875a;
   --live-ring: rgb(21 135 90 / 0.2);
   /* Elevation */
-  --shadow: 0 1px 2px rgb(20 32 26 / 0.05), 0 8px 24px -16px rgb(20 32 26 / 0.18);
-  --shadow-hover: 0 22px 44px -26px rgb(10 107 82 / 0.4);
-  --scrim: rgb(19 32 26 / 0.25);
+  --shadow: 0 1px 2px rgb(11 31 58 / 0.05), 0 8px 24px -16px rgb(11 31 58 / 0.18);
+  --shadow-hover: 0 22px 44px -26px rgb(31 86 176 / 0.4);
+  --scrim: rgb(11 31 58 / 0.28);
   /* Project stages (gradient from → to) */
   --stage-whysoap-a: #f3f7ff; --stage-whysoap-b: #dde8fb;
   --stage-plants-a:  #e8f2ec; --stage-plants-b:  #d0e5d8;
   --stage-hih7-a:    #e8edf7; --stage-hih7-b:    #cbd7ef;
   --stage-atheera-a: #f1eaf4; --stage-atheera-b: #ddcfe7;
-  --stage-kasch-a:   #eef4ef; --stage-kasch-b:   #dce9df;
+  --stage-kasch-a:   #eef2f8; --stage-kasch-b:   #dce4f0;
   --brand-whysoap: #042347; --brand-whysoap-2: #2f6fe0;
   /* Browser frame */
   --frame-bg: #ffffff;
@@ -66,26 +68,28 @@
 
 [data-theme="dark"] {
   /* Dark — "a reading lamp in a majlis at night": warm charcoal and cream,
-     soft mint, a date-honey highlight. Opt-in only; light is the default. */
+     soft blue, a date-honey highlight. Opt-in only; light is the default. */
 
-  --bg: #1a1b18;
-  --surface: #222420;
-  --surface-2: #282a25;
-  --wash: #1d2a23;
-  --rule: #34352f;
-  --rule-strong: #6f7169;
-  --text: #f2efe8;
-  --text-2: #c9c5ba;
-  --text-3: #a39f94;
-  --accent: #7ccfae;
-  --accent-ink: #0f1a15;
-  --accent-soft: #1f3830;
+  --bg: #1a1b1e;
+  --surface: #222328;
+  --surface-2: #28292e;
+  --wash: #1c2230;
+  --rule: #33343a;
+  --rule-strong: #6e717a;
+  --text: #f1efea;
+  --text-2: #c8c6c0;
+  --text-3: #a09e98;
+  --brand: #8fb8f5;
+  --brand-ink: #0b1f3a;
+  --accent: #8fb8f5;
+  --accent-ink: #0b1f3a;
+  --accent-soft: #1e2a3e;
   --highlight: #e5aa55;
   --highlight-soft: #3a2d18;
   --live: #4cc38a;
   --live-ring: rgb(76 195 138 / 0.22);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.35), 0 10px 28px -18px rgb(0 0 0 / 0.6);
-  --shadow-hover: 0 22px 44px -26px rgb(124 207 174 / 0.25);
+  --shadow-hover: 0 22px 44px -26px rgb(143 184 245 / 0.25);
   --scrim: rgb(8 9 7 / 0.55);
   /* Dim tinted stages so the (light) screenshots glow */
   /* WhySOAP keeps its original light stage in both themes (the logo is navy). */
@@ -93,7 +97,7 @@
   --stage-plants-a:  #22322a; --stage-plants-b:  #1b2822;
   --stage-hih7-a:    #242c3d; --stage-hih7-b:    #1c2332;
   --stage-atheera-a: #2e2638; --stage-atheera-b: #241e2d;
-  --stage-kasch-a:   #24302a; --stage-kasch-b:   #1d2621;
+  --stage-kasch-a:   #232a36; --stage-kasch-b:   #1c212b;
   --frame-bg: #1f201d;
   --frame-bar: #2a2b27;
   --frame-rule: #36372f;
@@ -220,9 +224,8 @@ a { color: inherit; }
 /* The signature: «بن ثنيان» handwritten in Ruqaa, slanted, with a stroke
    that leaves the final ن and sweeps back under the name. Navy, like the
    share card and the site icon; cream in the dark theme. */
-.signature { width: 118px; height: auto; flex: none; margin-block: -8px; fill: #0b1f3a; overflow: visible; }
+.signature { width: 118px; height: auto; flex: none; margin-block: -8px; fill: var(--brand); overflow: visible; }
 .signature text { font-family: "Aref Ruqaa", var(--font-ar); font-weight: 700; }
-[data-theme="dark"] .signature { fill: var(--text); }
 
 @media (max-width: 640px) {
   .mark__name { display: none; }
@@ -306,10 +309,10 @@ a { color: inherit; }
   gap: 0.5rem;
   min-height: 44px;
   padding: 0.6rem 1.25rem;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--brand);
   border-radius: 999px;
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--brand);
+  color: var(--brand-ink);
   font: inherit;
   font-weight: 600;
   text-decoration: none;
@@ -904,7 +907,7 @@ a { color: inherit; }
 }
 .xo__cell:not([aria-disabled="true"]):active { scale: 0.94; }
 .xo__cell[aria-disabled="true"] { cursor: default; }
-.xo__cell.is-win { background: var(--accent); border-color: transparent; color: var(--accent-ink); }
+.xo__cell.is-win { background: var(--brand); border-color: transparent; color: var(--brand-ink); }
 
 .xo__cell svg {
   position: absolute;
@@ -917,7 +920,7 @@ a { color: inherit; }
   stroke-linecap: round;
 }
 .xo__cell .mark-o { color: var(--accent); }
-.xo__cell.is-win .mark-o { color: var(--accent-ink); }
+.xo__cell.is-win .mark-o { color: var(--brand-ink); }
 .xo__cell svg * {
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
@@ -1098,7 +1101,7 @@ kbd {
   .nav__link:hover { color: var(--text); }
   .lang-toggle:hover, .icon-button:hover { background: var(--accent-soft); color: var(--text); }
   .cmd-trigger:hover { border-color: var(--accent); color: var(--text); }
-  .button:hover { background: color-mix(in srgb, var(--accent) 86%, var(--text)); }
+  .button:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
   .button--ghost:hover { background: var(--surface); border-color: var(--accent); color: var(--accent); }
   .link:hover { text-decoration-color: currentColor; }
   .link--out:hover::after,
