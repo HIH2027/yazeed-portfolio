@@ -1,15 +1,19 @@
 # Yazeed Bin Thnayan — Portfolio
 
 A bilingual (English / Arabic) personal site built with plain HTML, CSS and JavaScript.
-No framework, no build step, no dependencies, no external requests. Open `index.html` and it works.
+No framework and no build step. The only script dependency is StringTune (vendored in `js/vendor`,
+MIT) for the card tilt, portrait parallax and magnetic buttons; everything works without it. Fonts
+come from Google Fonts (IBM Plex Sans / Plex Sans Arabic, and Aref Ruqaa for the signature).
 
 ## Structure
 
 ```
 index.html        All markup and copy, in both languages.
 css/style.css     Tokens → reset → components → sections → responsive → print.
-js/main.js        Language, theme, scroll reveals, scroll spy, mobile menu.
-assets/favicon.svg
+js/main.js        Language, theme, reveals, scroll spy, command menu (Ctrl/⌘ K), XO,
+                  CV request, copy email, Riyadh clock.
+js/vendor/        StringTune 1.2.5 browser build + licence.
+assets/           Portrait, share card (og.jpg), icons, project previews (work/).
 ```
 
 ## How the two languages work
@@ -65,12 +69,19 @@ Tokens live at the top of `style.css`. Changing the accent is one line, in two p
 
 ## Social preview card
 
-`assets/og.png` (1200×630) is what LinkedIn, WhatsApp and X show when the link is shared. It is
-generated, not hand-drawn — regenerate it after any change to the name or headline.
+`assets/og.jpg` (1200×630) is what LinkedIn, WhatsApp, Telegram and X show when the link is shared.
+It carries the signature, name, roles and availability. Keep it a JPEG under 300 KB: above that,
+WhatsApp drops to a small thumbnail. Regenerate it after any change to the name, roles or dates.
 
-`og:url`, `og:image` and `twitter:image` are absolute and point at the live GitHub Pages address.
+## Signature
+
+The mark is «يزيد» in Aref Ruqaa with an underline that turns into a heartbeat. It appears in the
+header (inline SVG, the stroke draws itself once), on the share card, and, reduced to the initial ي
+on its pulse, as the site icon (`favicon-32.png`, `icon-192.png`, `apple-touch-icon.png`).
+
+`og:url`, `og:image` and `twitter:image` are absolute and point at https://www.yazeed.space/.
 They must stay absolute: crawlers will not resolve a relative path, and the card silently falls back
-to plain text. If the site ever moves to a custom domain, update the host in those three tags.
+to plain text. If the domain ever changes, update the host in those tags.
 
 Platforms cache previews aggressively. After a change, force a re-read with
 LinkedIn Post Inspector (`linkedin.com/post-inspector`) or Facebook's Sharing Debugger.
